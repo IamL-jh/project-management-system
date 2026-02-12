@@ -37,7 +37,7 @@ def create_project(body: ProjectCreate, service: ProjectService = Depends(get_pr
 @router.get('/projects', response_model=list[ProjectOut])
 def get_projects(service: ProjectService = Depends(get_project_service)):
     try:
-        projects=ProjectService.list()
+        projects=service.list()
         return [ProjectOut(id=p.id, name=p.name) for p in projects]
         
     except Exception as e:
