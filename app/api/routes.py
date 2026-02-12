@@ -49,7 +49,7 @@ def get_projects(service: ProjectService = Depends(get_project_service)):
 def get_project_id(project_id: str, service: ProjectService = Depends(get_project_service)):
     try:
         project = service.get(project_id)
-        return ProjectOut(project_repo)
+        return ProjectOut(project)
         
     except Exception as e:
         raise to_http(e)
